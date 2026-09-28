@@ -4,10 +4,11 @@ A fun interactive birthday website built with plain HTML, CSS, and vanilla JavaS
 
 ## What it does
 
-- Enter an age and light that many candles
-- Tap each candle to blow it out
+- Enter an age on the configuration page and open a dedicated candles page
+- Tap an individual candle to blow out just that flame
+- Tap anywhere else on the candles page to blow out all remaining candles
 - See a celebration message when every candle is out
-- Relight the candles to play again
+- Relight candles or go back to change age
 
 ## Live site
 
