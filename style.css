@@ -1,0 +1,283 @@
+:root {
+  color-scheme: light;
+  --bg-top: #fff0f5;
+  --bg-bottom: #ffe0b8;
+  --card: rgba(255, 255, 255, 0.86);
+  --text: #47324b;
+  --accent: #ff6f91;
+  --accent-dark: #e95377;
+  --cake: #ffd5e5;
+  --cake-shadow: #f4aac2;
+  --icing: #fff7fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: min(900px, 100%);
+  padding: 28px;
+  border-radius: 24px;
+  background: var(--card);
+  box-shadow: 0 20px 45px rgba(86, 42, 76, 0.15);
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.intro {
+  margin: 0 0 24px;
+}
+
+.controls {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.input-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+label {
+  font-weight: 700;
+}
+
+input,
+button {
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+}
+
+input {
+  min-width: min(240px, 100%);
+  padding: 14px 18px;
+  background: #fff;
+  box-shadow: inset 0 0 0 2px rgba(233, 83, 119, 0.15);
+}
+
+button {
+  padding: 14px 20px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+button:hover,
+button:focus-visible {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
+.message {
+  min-height: 1.5em;
+  margin: 18px 0 10px;
+  font-weight: 700;
+}
+
+.cake-scene {
+  position: relative;
+  padding-top: 48px;
+}
+
+.candles {
+  min-height: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 8px 6px;
+  margin: 0 auto -10px;
+  max-width: 760px;
+  position: relative;
+  z-index: 1;
+}
+
+.candle {
+  width: 22px;
+  min-width: 22px;
+  height: 84px;
+  padding: 0;
+  position: relative;
+  background: transparent;
+  border-radius: 10px 10px 6px 6px;
+}
+
+.candle:hover,
+.candle:focus-visible {
+  background: transparent;
+  transform: none;
+}
+
+.wax,
+.wick,
+.flame {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.wax {
+  bottom: 0;
+  width: 18px;
+  height: 58px;
+  border-radius: 9px 9px 4px 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    #ff99b2 0,
+    #ff99b2 6px,
+    #ffd7e4 6px,
+    #ffd7e4 12px
+  );
+  box-shadow: inset 0 -8px 0 rgba(255, 255, 255, 0.18);
+}
+
+.wick {
+  bottom: 57px;
+  width: 3px;
+  height: 12px;
+  background: #68433b;
+  border-radius: 999px;
+}
+
+.flame {
+  bottom: 64px;
+  width: 14px;
+  height: 20px;
+  border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+  background: radial-gradient(circle at 50% 30%, #fff9c8 0 25%, #ffcb66 40%, #ff7b41 70%, rgba(255, 123, 65, 0.8) 100%);
+  transform-origin: center bottom;
+  animation: flicker 0.8s ease-in-out infinite alternate;
+  box-shadow: 0 0 18px rgba(255, 184, 77, 0.75);
+}
+
+.candle.out .flame {
+  animation: none;
+  opacity: 0;
+  transform: translateX(-50%) scale(0.2);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.cake {
+  width: min(520px, 90vw);
+  margin: 0 auto;
+}
+
+.cake-top {
+  height: 36px;
+  border-radius: 18px 18px 10px 10px;
+  background: linear-gradient(180deg, var(--icing), #ffe8f1);
+  box-shadow: inset 0 -8px 0 rgba(255, 190, 212, 0.9);
+}
+
+.cake-base {
+  height: 110px;
+  margin-top: -4px;
+  border-radius: 0 0 26px 26px;
+  background: linear-gradient(180deg, var(--cake), var(--cake-shadow));
+}
+
+.celebration {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  pointer-events: none;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  animation: pop-in 0.45s ease;
+}
+
+.confetti {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  font-size: 1.5rem;
+  animation: confetti-fall 1.6s ease forwards;
+}
+
+@keyframes flicker {
+  from {
+    transform: translateX(-50%) rotate(-3deg) scale(0.96);
+  }
+  to {
+    transform: translateX(-50%) rotate(4deg) scale(1.05);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+@keyframes confetti-fall {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -10px) rotate(0deg);
+  }
+  15% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--x)), 170px) rotate(var(--r));
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 22px 16px;
+  }
+
+  .candle {
+    width: 18px;
+    min-width: 18px;
+    height: 72px;
+  }
+
+  .wax {
+    width: 14px;
+    height: 50px;
+  }
+
+  .wick {
+    bottom: 49px;
+  }
+
+  .flame {
+    bottom: 56px;
+    width: 12px;
+    height: 18px;
+  }
+}
