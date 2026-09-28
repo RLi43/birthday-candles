@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Candles</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="candles-body">
+  <main class="page candles-page">
+    <section class="card candles-card">
+      <p id="message" class="message" aria-live="polite">Lighting candles...</p>
+
+      <section id="cake-scene" class="cake-scene" aria-live="polite">
+        <div id="candles" class="candles" aria-label="Birthday candles"></div>
+        <div class="cake" aria-hidden="true">
+          <div class="cake-top"></div>
+          <div class="cake-base"></div>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button id="reset-button" type="button">Relight Candles</button>
+        <a class="button-link" href="index.html">Change Age</a>
+      </div>
+    </section>
+  </main>
+
+  <template id="candle-template">
+    <button class="candle" type="button" aria-label="Blow out candle">
+      <span class="flame"></span>
+      <span class="wick"></span>
+      <span class="wax"></span>
+    </button>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -6,40 +6,23 @@
   <title>Birthday Candles</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="config-body">
   <main class="page">
-    <section class="card">
+    <section class="card config-card">
       <h1>🎂 Birthday Candles</h1>
-      <p class="intro">Enter your age, light the candles, and tap each flame to blow it out.</p>
+      <p class="intro">Enter your age and light your candle scene.</p>
 
-      <form id="candle-form" class="controls">
+      <form id="config-form" class="controls" action="candles.html" method="get">
         <label for="age-input">Age</label>
         <div class="input-row">
           <input id="age-input" name="age" type="number" min="1" max="100" inputmode="numeric" placeholder="e.g. 21" required>
           <button type="submit">Light Candles</button>
-          <button id="reset-button" type="button" hidden>Relight Candles</button>
         </div>
       </form>
 
       <p id="message" class="message" aria-live="polite">Ready to celebrate?</p>
-
-      <section id="cake-scene" class="cake-scene" aria-live="polite">
-        <div id="candles" class="candles" aria-label="Birthday candles"></div>
-        <div class="cake" aria-hidden="true">
-          <div class="cake-top"></div>
-          <div class="cake-base"></div>
-        </div>
-      </section>
     </section>
   </main>
-
-  <template id="candle-template">
-    <button class="candle" type="button" aria-label="Blow out candle">
-      <span class="flame"></span>
-      <span class="wick"></span>
-      <span class="wax"></span>
-    </button>
-  </template>
 
   <script src="script.js"></script>
 </body>
